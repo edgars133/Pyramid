@@ -99,15 +99,33 @@ End-point-error is defined as the test loss. This numeric in the original paper 
 
 ## Analysis
 
-As a second step in our reproducibility project, it has been decided to use the Sceneflow pretrained model and finetune it on KITTI 2015, hence comparing the disparity images and find qualitative differences in the images. For the finetune, Google Colab was chosen. Since the RAM memory was limited, the batch size was reduced from 12 to 4 and the number of epochs was set to 300 epochs. Unfortunately the runtime of the VM in Google Colab is limited (12 hours) hence we managed to finetune the model for 186 epochs. Nevertheless, this was enough to get disparity images.
-To compare the pretrained model and the finetuned model, we decided to test the models on two images, one from Driving dataset and one from Monkaa dataset (both subsets of Sceneflow dataset).
+### 2: Finetune on KITTI 2015 dataset
+As a second step in our reproducibility project, we decided to use the Sceneflow pretrained model and finetune it on KITTI 2015, hence comparing the disparity images and find qualitative differences in the images. For the finetune, Google Colab was chosen. Since the RAM memory was limited, the batch size was reduced from 12 to 4 and the number of epochs was set to 300 epochs. Unfortunately the runtime of the VM in Google Colab is limited (12 hours) hence we managed to finetune the model for maximum 186 epochs. Nevertheless, this was enough to get disparity images.
+To compare the pretrained model and the finetuned model, we decided to test the models on two pairs of stereo images, one from Driving dataset and one from Monkaa dataset (both subsets of Sceneflow dataset). 
 
-#### Left image
+Below the predicted disparity of the pair of stereo images from Driving subset are shown. It's noticeable that the predicted disparity from the pretrained model is much smoother than the one from the finetuned model. The finetuned model shows bad results in the region of the photo very close to the camera (street floor). Nevertheless, the finetuned model shows to be able to better detect street the proximity of image features such as the cars and the lights. 
 
-<p float="left">
-  <img src="0401_s.png" width="100" />
-  <img src="0401_finetune.png" width="100" /> 
-</p>
+#### Left image (Driving)
+<img align="center" src="0401.png" >
+#### Predicted disparity pretrained model (grayscale)
+<img align="center" src="0401_s.png" >
+#### Predicted disparity finetuned model (grayscale)
+<img align="center" src="0401_finetune.png" > 
+
+Below the predicted disparity of the pair of stereo images from Monkaa subset are shown. The pretrained model is able to nicely identify the promiximity of the monkey, with some difficulties with the face. On the other hand, the finetuned model shows bad results.
+
+#### Left image (Monkaa)
+<img align="center" src="0048.png" >
+#### Predicted disparity pretrained model (grayscale)
+<img align="center" src="0048_s.png" >
+#### Predicted disparity finetuned model (grayscale)
+<img align="center" src="0048_finetune.png" > 
+
+Overall, the finetuned model shows to be able to detect more features. The non-smoothness of the images are probably due to the 
+
+
+
+
 
 
 
