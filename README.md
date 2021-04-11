@@ -64,7 +64,7 @@ Finally, the loss is calculated by comparing the predicted disparity to the grou
 
 ### Datasets used
 
-The model uses sceneflow dataset which concists of 3 subsets - 'Driving', 'Flying 3Dthings' and 'Monkaa'. The model which is pretrained on sceneflow dataset was used to measure the end-point-error. Afterwards the model was finetuned on KITTI dataset and results were compared.
+The model uses SceneFlow dataset which concists of 3 subsets - 'Driving', 'Flying 3Dthings' and 'Monkaa'. The model which is pretrained on sceneflow dataset was used to measure the end-point-error. Afterwards the model was finetuned on KITTI dataset and results were compared.
 
 We tried to reproduce the results of end-point-error by evaluating the pretrained model on sample 'Monkaa' dataset and 'Driving' dataset separately. Afterwards, ablation study was performed to see what are the consequences of finetuning the pretrained model. 
 
@@ -76,13 +76,11 @@ We tried to reproduce the results of end-point-error by evaluating the pretraine
 
 End-point-error is defined as the test loss between predicted disparity to the ground truth disparity. This numeric in the original paper was obtained as 1.09, however, larger values were found during the reproduction study. On 'Monkaa' sample subset the error was as large as 10.
 
-[INFO ABOUT EPE PROBLEM]
+The large error is also partially due to small dataset used. However, there was also an issue reported that finding an error close to 1.09 requires to toggle the corners and without training the model on SceneFlow from scratch, such small error could not be reproduced. A larger dataset on driving vehicles is showing an end-point-error of around 6, when tested on SceneFlow pretrained model.
 
-The loss was computed on the pretrained sceneflow dataset. Likely, a finetuned model on KITTI dataset would give 
-somewhat better results which is investigated later in analysis. The authors also mention
-a high accuracy on KITTI dataset. The exact computation of end-point-error was made by adapting the main.py file
-of the repository, and making sure that all the inputs were passed correctly. The code was adapted because, due to memory requirements,
-the end-point-error was estimated on a separate 'Monkaa'or 'Driving' dataset instead of sceneflow dataset which consists
+So the loss was computed on the pretrained SceneFlow dataset. Likely, a finetuned model on KITTI dataset would give somewhat better results which is investigated later in analysis. The authors also mention a high accuracy on KITTI dataset. 
+
+The exact computation of end-point-error was made by adapting the main.py file of the repository, and making sure that all the inputs were passed correctly. The code was adapted because, due to memory requirements, the end-point-error was estimated on a separate 'Monkaa'or 'Driving' dataset instead of sceneflow dataset which consists
 of three subsets.
 
 
