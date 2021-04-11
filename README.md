@@ -107,7 +107,11 @@ To compare the pretrained model and the finetuned model, we decided to test the 
 
 #### Left image
 
-<img align="center" src="0401_s.png">
+<p float="left">
+  <img src="0401_s.png" width="100" />
+  <img src="0401_finetune.png" width="100" /> 
+</p>
+
 
 
 ## Conclusion
