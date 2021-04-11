@@ -102,9 +102,7 @@ Providing images and how we got them
 
 ## Analysis
 
-We performed analysis and we finetuned the model, this showed these interesting things.. And how we did it
-
-Also we did this...
+As a second step in our reproducibility project, it has been decided to use the Sceneflow pretrained model and finetune it on KITTI 2015, hence comparing the disparity images and find qualitative differences in the images. For the finetune, Google Colab was chosen. Since the RAM memory was limited, the batch size was reduced from 12 to 4 and the number of epochs was set to 300 epochs. Unfortunately the runtime of the VM in Google Colab is limited (12 hours) hence we managed to finetune the model for 186 epochs. Nevertheless, this was enough to get disparity images of the
 
 ## Conclusion
 
