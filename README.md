@@ -106,7 +106,8 @@ As a second step in our reproducibility project, it has been decided to use the 
 To compare the pretrained model and the finetuned model, we decided to test the models on two images, one from Driving dataset and one from Monkaa dataset (both subsets of Sceneflow dataset).
 
 #### Left image
-<img align="center" src="">
+
+<img align="center" src="0401_s.png">
 
 
 ## Conclusion
