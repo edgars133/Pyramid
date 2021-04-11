@@ -1,33 +1,12 @@
-# Pyramid
-Pyramid stereo network
-
-This is our blogpost
-
-Contents:
-Intro
-Describe model
--pretrained sceneflow model
--three datasets monkaa etc consisting of right,left and disparity image
-
--computing test loss, on  a single dataset giving epe.
--we found epe on pretrained models
-
--we compared images 
--then we finetuned the model
-
-Results and how we did it
--epe
--disparity maps
-
-Analysis
--we finetuned model, results and how
-
-Conclusion
 
 # Pyramid Stereo Matching Network
 
-This is our blogpost and here we go
-Here is the PSMNet repository made by the authors.
+This is the blogpost of group 70 on reproduction project on Pyramid Stereo Matching network.
+
+Authors of the blogpost:
+Youssef Farah & Edgars Daugulis
+
+Here is the PSMNet repository made by the authors of PSMNet network.
 
 https://github.com/JiaRenChang/PSMNet
 
