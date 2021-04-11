@@ -47,8 +47,22 @@ DO INTRO
 
 
 ## Model Description
-DESCRIBE MODEL BRIEFLY
+Estimation of depth of the image is essential in many computer vision applications. The PSMNet network aims to do exactly that. The model is evaluated on different
+datasets to show how accurate these features can be predicted.
+
+The description of the network is shown in the figure below.
+Left and right image are inputs which are compared, and predicted disparity image is created.
+
 <img align="center" src="https://user-images.githubusercontent.com/11732099/43501836-1d32897c-958a-11e8-8083-ad41ec26be17.jpg">
+
+The network has a CNN layer, followed by Spatial Pyramid Pooling Module which is a unique contribution form the authors of the network. Then the cost volume is implemented, and finally a 3D CNN layer. 
+
+The cost volume is made by concatenating left feature maps with the corresponding right feature maps across disparity levels. This results in a 4D volume (height x width
+x disparity x feature size).[1]
+
+Finally, the loss is calculated by comparing the predicted disparity to the ground truth disparity.
+
+### Datasets used
 
 The model uses sceneflow dataset which concists of 3 subsets - 'Driving', 'Flying 3Dthings' and 'Monkaa'. The model which is pretrained on sceneflow dataset was used to measure the end-point-error. Afterwards the model was finetuned on KITTI dataset and results were compared.
 
@@ -88,11 +102,16 @@ x+=1
 
 ### Evaluation of the end-point-error
 
-End-point-error is defined as the test loss. This numeric in the original paper was obtained as 1.09, however, larger values were found during the reproduction study. On 'Monkaa' sample subset the error was as large as 10.
+End-point-error is defined as the test loss between predicted disparity to the ground truth disparity. This numeric in the original paper was obtained as 1.09, however, larger values were found during the reproduction study. On 'Monkaa' sample subset the error was as large as 10.
 
 [INFO ABOUT EPE PROBLEM]
 
-
+The loss was computed on the pretrained sceneflow dataset. Likely, a finetuned model on KITTI dataset would give 
+somewhat better results which is investigated later in analysis. The authors also mention
+a high accuracy on KITTI dataset. The exact computation of end-point-error was made by adapting the main.py file
+of the repository, and making sure that all the inputs were passed correctly. The code was adapted because, due to memory requirements,
+the end-point-error was estimated on a separate 'Monkaa'or 'Driving' dataset instead of sceneflow dataset which consists
+of three subsets.
 
 
 
@@ -129,3 +148,6 @@ Below the predicted disparity of the pair of stereo images from Monkaa subset ar
 ## Conclusion
 
 An interesting project
+
+## References
+[1] Jia-Ren Chang and Yong-Sheng Chen. "Pyramid Stereo Matching Network", 2018.
