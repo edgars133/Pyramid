@@ -6,9 +6,14 @@ This is our blogpost
 Contents:
 Intro
 Describe model
+-pretrained sceneflow model
+-three datasets monkaa etc consisting of right,left and disparity image
+
+-computing test loss, on  a single dataset giving epe.
 -we found epe on pretrained models
+
 -we compared images 
--we finetuned the model
+-then we finetuned the model
 
 Results and how we did it
 -epe
@@ -22,7 +27,7 @@ Conclusion
 # Pyramid Stereo Matching Network
 
 This is our blogpost and here we go
-This is the PSMNet repository made by the authors.
+Here is the PSMNet repository made by the authors.
 
 https://github.com/JiaRenChang/PSMNet
 
