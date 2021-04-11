@@ -67,10 +67,6 @@ python submission.py --maxdisp 192 \
 
 ### Pretrained Model
 
-REMOVE
-| KITTI 2015 |  Scene Flow | KITTI 2012|
-|---|---|---|
-|[Google Drive](https://drive.google.com/file/d/1pHWjmhKMG4ffCrpcsp_MTXMJXhgl3kF9/view?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1xoqkQ2NXik1TML_FMUTNZJFAHrhLdKZG/view?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1p4eJ2xDzvQxaqB20A_MmSP9-KORBX1pZ/view?usp=sharing)|
 
 ### Test on your own stereo pair
 ```
@@ -97,11 +93,8 @@ Providing images and how we got them
 REMOVE
 <img align="center" src="https://user-images.githubusercontent.com/11732099/37817886-45a12ece-2eb3-11e8-8254-ae92c723b2f6.png">
 
-※Note that the reported 3-px validation errors were calculated using KITTI's official matlab code, not our code.
-
 ### Results on KITTI 2015 leaderboard
 REMOVE
-[Leaderboard Link](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
 
 | Method | D1-all (All) | D1-all (Noc)| Runtime (s) |
 |---|---|---|---|
