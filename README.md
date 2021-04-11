@@ -60,36 +60,13 @@ The cost volume is made by concatenating left feature maps with the correspondin
 right feature maps across disparity levels. This results in a 4D volume (height x width
 x disparity x feature size).[1]
 
-The loss is calculated by comparing the predicted disparity to the ground truth disparity.
+Finally, the test loss is calculated by comparing the predicted disparity to the ground truth disparity.
 
 ### Datasets used
 The model uses sceneflow dataset which concists of 3 subsets - 'Driving', 'Flying 3Dthings' and 'Monkaa'. The model which is pretrained on sceneflow dataset was used to measure the end-point-error. Afterwards the model was finetuned on KITTI dataset and results were compared.
 
-We tried to reproduce the results of end-point-error by evaluating the pretrained model on sample 'Monkaa' dataset and 'Driving' dataset separately. Afterwards, ablation study was performed to see what are the consequences of finetuning the pretrained model. 
+We tried to reproduce the results of end-point-error by evaluating the pretrained model on sample 'Monkaa' dataset and 'Driving' dataset separately. Afterwards, ablation study was performed to see what are the consequences of finetuning the pretrained model. In order to evaluate the test loss, the dataset should consists of right and left images, as well as of disparity map.
 
-
-```
-python main.py --maxdisp 192 \
-               --model stackhourglass \
-               --datapath (your scene flow data folder)\
-               --epochs 10 \
-               --loadmodel (optional)\
-               --savemodel (path for saving model)
-```
-
-```
-python finetune.py --maxdisp 192 \
-                   --model stackhourglass \
-                   --datatype 2015 \
-                   --datapath (KITTI 2015 training data folder) \
-                   --epochs 300 \
-                   --loadmodel (pretrained PSMNet) \
-                   --savemodel (path for saving model)
-```
-
-```
-python Test_img.py --loadmodel (finetuned PSMNet) --leftimg ./left.png --rightimg ./right.png
-```
 
 ## Results
 
@@ -145,3 +122,8 @@ Overall, the finetuned model shows to be able to detect more features. The non-s
 ## Conclusion
 
 An interesting project
+
+## References 
+
+[1] Jia-Ren Chang and Yong-Sheng Chen. "Pyramid Stereo Matching Network", 2018.
+
