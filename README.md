@@ -20,8 +20,8 @@ https://github.com/JiaRenChang/PSMNet
 
 ## Introduction
 
-DO INTRO
-''Recent work has shown that depth estimation from a stereo pair of images can be formulated as a supervised learning task to be resolved with convolutional neural networks (CNNs). However, current architectures rely on patch-based Siamese networks, lacking the means to exploit context information for finding correspondence in illposed regions. To tackle this problem, we propose PSMNet, a pyramid stereo matching network consisting of two main modules: spatial pyramid pooling and 3D CNN. The spatial pyramid pooling module takes advantage of the capacity of global context information by aggregating context in different scales and locations to form a cost volume. The 3D CNN learns to regularize cost volume using stacked multiple hourglass networks in conjunction with intermediate supervision.''
+Depth estimation in images is an important application in computer vision tasks. The following reproducability project aims to reproduce a pyramid stereo matching network and analyse its performance. Depth estimation from a stereo pair of images can be formulated as a supervised learning task, which implements convolutional neural networks (CNN). The PSMNet network is created which consists of two main modules: spatial pyramid pooling and 3D CNN. The reproduction project aims to replicate the PSMNet results and evaluate its performance on different models and different datasets. First, the test error is evaluated on a pretrained model, then the model is finetued on another dataset (KITTI) to show if more accurate results can be achieved.
+
 
 
 
