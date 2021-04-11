@@ -6,8 +6,8 @@ This is our blogpost
 # Pyramid Stereo Matching Network
 
 This is our blogpost and here we go
-
-
+This is the PSMNet repository made by the authors.
+https://github.com/JiaRenChang/PSMNet
 
 ## Contents
 
