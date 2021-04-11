@@ -69,36 +69,8 @@ The model uses sceneflow dataset which concists of 3 subsets - 'Driving', 'Flyin
 We tried to reproduce the results of end-point-error by evaluating the pretrained model on sample 'Monkaa' dataset and 'Driving' dataset separately. Afterwards, ablation study was performed to see what are the consequences of finetuning the pretrained model. 
 
 
-```
-python main.py --maxdisp 192 \
-               --model stackhourglass \
-               --datapath (your scene flow data folder)\
-               --epochs 10 \
-               --loadmodel (optional)\
-               --savemodel (path for saving model)
-```
-
-```
-python finetune.py --maxdisp 192 \
-                   --model stackhourglass \
-                   --datatype 2015 \
-                   --datapath (KITTI 2015 training data folder) \
-                   --epochs 300 \
-                   --loadmodel (pretrained PSMNet) \
-                   --savemodel (path for saving model)
-```
-
-```
-python Test_img.py --loadmodel (finetuned PSMNet) --leftimg ./left.png --rightimg ./right.png
-```
-
 ## Results
 
-
-```
-a=b+c
-x+=1
-```
 
 ### Evaluation of the end-point-error
 
