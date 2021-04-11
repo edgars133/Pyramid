@@ -19,29 +19,13 @@ This is our blogpost and here we go
 
 ## Introduction
 
-Recent work has shown that depth estimation from a stereo pair of images can be formulated as a supervised learning task to be resolved with convolutional neural networks (CNNs). However, current architectures rely on patch-based Siamese networks, lacking the means to exploit context information for finding correspondence in illposed regions. To tackle this problem, we propose PSMNet, a pyramid stereo matching network consisting of two main modules: spatial pyramid pooling and 3D CNN. The spatial pyramid pooling module takes advantage of the capacity of global context information by aggregating context in different scales and locations to form a cost volume. The 3D CNN learns to regularize cost volume using stacked multiple hourglass networks in conjunction with intermediate supervision.
+''Recent work has shown that depth estimation from a stereo pair of images can be formulated as a supervised learning task to be resolved with convolutional neural networks (CNNs). However, current architectures rely on patch-based Siamese networks, lacking the means to exploit context information for finding correspondence in illposed regions. To tackle this problem, we propose PSMNet, a pyramid stereo matching network consisting of two main modules: spatial pyramid pooling and 3D CNN. The spatial pyramid pooling module takes advantage of the capacity of global context information by aggregating context in different scales and locations to form a cost volume. The 3D CNN learns to regularize cost volume using stacked multiple hourglass networks in conjunction with intermediate supervision.''
 
-<img align="center" src="https://user-images.githubusercontent.com/11732099/43501836-1d32897c-958a-11e8-8083-ad41ec26be17.jpg">
+
 
 ## Model Description
 
-### Dependencies
-
-- [Python 3.7](https://www.python.org/downloads/)
-- [PyTorch(1.6.0+)](http://pytorch.org)
-- torchvision 0.5.0
-- [KITTI Stereo](http://www.cvlibs.net/datasets/kitti/eval_stereo.php)
-- [Scene Flow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
-
-```
-Usage of Scene Flow dataset
-Download RGB cleanpass images and its disparity for three subset: FlyingThings3D, Driving, and Monkaa.
-Put them in the same folder.
-And rename the folder as: "driving_frames_cleanpass", "driving_disparity", "monkaa_frames_cleanpass", "monkaa_disparity", "frames_cleanpass", "frames_disparity".
-```
-### Notice
-1. Warning of upsample function in PyTorch 0.4.1+: add "align_corners=True" to upsample functions.
-2. Output disparity may be better with multipling by 1.17. Reported from issues [#135](https://github.com/JiaRenChang/PSMNet/issues/135) and [#113](https://github.com/JiaRenChang/PSMNet/issues/113).
+<img align="center" src="https://user-images.githubusercontent.com/11732099/43501836-1d32897c-958a-11e8-8083-ad41ec26be17.jpg">
 
 ### Train
 As an example, use the following command to train a PSMNet on Scene Flow
@@ -114,6 +98,7 @@ Providing images
 ※Note that the reported 3-px validation errors were calculated using KITTI's official matlab code, not our code.
 
 ### Results on KITTI 2015 leaderboard
+REMOVE
 [Leaderboard Link](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
 
 | Method | D1-all (All) | D1-all (Noc)| Runtime (s) |
