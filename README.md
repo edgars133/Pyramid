@@ -50,7 +50,9 @@ DO INTRO
 DESCRIBE MODEL BRIEFLY
 <img align="center" src="https://user-images.githubusercontent.com/11732099/43501836-1d32897c-958a-11e8-8083-ad41ec26be17.jpg">
 
-TELL WHAT WE DID
+The model uses sceneflow dataset which concists of 3 subsets - 'Driving', 'Flying 3Dthings' and 'Monkaa'. The model which is pretrained on sceneflow dataset was used to measure the end-point-error. Afterwards the model was finetuned on KITTI dataset and results were compared.
+
+We tried to reproduce the results of end-point-error by evaluating the pretrained model on sample 'Monkaa' dataset and 'Driving' dataset separately. Afterwards, ablation study was performed to see what are the consequences of finetuning the pretrained model. 
 
 
 ```
@@ -86,19 +88,14 @@ x+=1
 
 ### Evaluation of the end-point-error
 
-Here is the epe and we got it this way.
+End-point-error is defined as the test loss. This numeric in the original paper was obtained as 1.09, however, larger values were found during the reproduction study. On 'Monkaa' sample subset the error was as large as 10.
 
-### Disparity maps
-
-Providing images and how we got them
+[INFO ABOUT EPE PROBLEM]
 
 
 
-#### Left image
-<img align="center" src="http://www.cvlibs.net/datasets/kitti/results/efb9db97938e12a20b9c95ce593f633dd63a2744/image_0/000004_10.png">
 
-#### Predicted disparity
-<img align="center" src="http://www.cvlibs.net/datasets/kitti/results/efb9db97938e12a20b9c95ce593f633dd63a2744/result_disp_img_0/000004_10.png">
+
 
 ## Analysis
 
