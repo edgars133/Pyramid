@@ -20,7 +20,7 @@ https://github.com/JiaRenChang/PSMNet
 
 ## Introduction
 
-Depth estimation in images is an important application in computer vision tasks. The following reproducability project aims to reproduce a pyramid stereo matching network and analyse its performance. Depth estimation from a stereo pair of images can be formulated as a supervised learning task, which implements convolutional neural networks (CNN). The PSMNet network is created which consists of two main modules: spatial pyramid pooling and 3D CNN. The reproduction project aims to replicate the PSMNet results and evaluate its performance on different models and different datasets. First, the test error is evaluated on a pretrained model, then the model is finetued on another dataset (KITTI) to show if more accurate results can be achieved.
+Depth estimation in images is an important application in computer vision tasks. The following reproducibility project aims to reproduce a pyramid stereo matching network and analyse its performance. Depth estimation from a stereo pair of images can be formulated as a supervised learning task, which implements convolutional neural networks (CNN). The PSMNet network is created which consists of two main modules: spatial pyramid pooling and 3D CNN. The reproduction project aims to replicate the PSMNet results and evaluate its performance on different models and different datasets. The first task is to reproduce the End-Point-Error (EPE) of the model trained on Sceneflow dataset. Then the the model is finetued on another dataset (KITTI 2015) to see if more accurate results can be achieved.
 
 
 
@@ -53,7 +53,7 @@ We tried to reproduce the results of end-point-error by evaluating the pretraine
 
 ### Evaluation of the end-point-error
 
-End-point-error is defined as the test loss between predicted disparity to the ground truth disparity. This numeric in the original paper was obtained as 1.09, however, larger values were found during the reproduction study. On 'Monkaa' sample subset the error was as large as 10.
+End-point-error is defined as the test loss between predicted disparity to the ground truth disparity. This number in the original paper was obtained as 1.09, however, larger values were found during the reproduction study. On 'Monkaa' sample subset the error was as large as 10.
 
 The large error is also partially due to small dataset used. However, there was also an issue reported that finding an error close to 1.09 requires to toggle the corners and without training the model on SceneFlow from scratch, such small error could not be reproduced. A larger dataset on driving vehicles is showing an end-point-error of around 6, when tested on SceneFlow pretrained model.
 
@@ -96,7 +96,10 @@ Below the predicted disparity of the pair of stereo images from Monkaa subset ar
 
 ## Conclusion
 
-An interesting project
+The aim of this reproducibility project was to reproduce the EPE for a PSMNet trained on SceneFlow dataset, and see what are the outcomes of finetuning this model on KITTI 2015 dataset.
+For the EPE, it is found out that the pretrained model provided by the authors is damaged, as inference has shown a high EPE. Eventually training the model from scratch would lead to an EPE close to the one mentioned by the authors. This for us was not possible due to the large size of the dataset.
+Regarding the finetune, the model has shown better results for street images, whereas for cartoon images it works bad, and this was predictable since the KITTI 2015 has only real-life street images.
+
 
 ## References
 [1] Jia-Ren Chang and Yong-Sheng Chen. "Pyramid Stereo Matching Network", 2018.
