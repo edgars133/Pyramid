@@ -4,7 +4,9 @@
 This is the blogpost of group 70 on reproduction project on Pyramid Stereo Matching network.
 
 Authors of the blogpost:
-Youssef Farah & Edgars Daugulis
+Youssef Farah (4651510) & Edgars Daugulis (4662350)
+
+E.Daugulis@student.tudelft.nl
 
 Here is the PSMNet repository made by the authors of PSMNet network.
 
