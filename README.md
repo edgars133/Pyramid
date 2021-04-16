@@ -46,7 +46,7 @@ The *stacked hourglass* architecture implements three main hourglass networks, d
 
 Finally, the loss is calculated by comparing the predicted disparity to the ground truth disparity, hence to the final disparity map outputted by *stacked hourglass* module. This test loss is called *end-point-error*.
 
-### Datasets used
+## Analysis
 
 The model uses SceneFlow dataset which concists of 3 subsets - 'Driving', 'Flying 3Dthings' and 'Monkaa'. The model which is pretrained on SceneFlow dataset was used to measure the end-point-error. Afterwards the model was finetuned on KITTI dataset and results were compared.
 
@@ -58,7 +58,7 @@ We tried to reproduce the results of end-point-error by evaluating the pretraine
 
 ### Evaluation of the end-point-error
 
-End-point-error is defined as the test loss between predicted disparity to the ground truth disparity. This number in the original paper was obtained as 1.09, however, larger values were found during the reproduction study. On 'Monkaa' sample subset the error was as large as 10.
+End-point-error is defined as the test loss between predicted disparity to the ground truth disparity. This number in the original paper was obtained as 1.09 for the model trained on Sceneflow. As the Sceneflow dataset is very big and training a model from zero on this dataset would have long training times, it was decided to do inference, hence use the pretrained model by the authors and test it on sample images from the same set to get the error. However, larger values were found during the reproduction study. On 'Monkaa' sample subset the error was as large as 10.
 
 The total test loss is evaluated as shown below. The function 'test' takes left image, right image and disparity map to evaluate the loss.
 ```
@@ -71,7 +71,7 @@ The total test loss is evaluated as shown below. The function 'test' takes left 
 	print('total test loss = %.3f' %(total_test_loss/len(TestImgLoader)))
 ```
 
-The large error is also partially due to small dataset used. However, there was also an issue reported that finding an error close to 1.09 requires to toggle the corners and without training the model on SceneFlow from scratch, such small error could not be reproduced. A larger dataset on driving vehicles is showing an end-point-error of around 6, when tested on SceneFlow pretrained model.
+The large error is also partially due to small dataset used. However, there was also an issue (JiaRenChang/PSMNet#64) reported that finding an error close to 1.09 requires to toggle the corners and without training the model on SceneFlow from scratch, such small error could not be reproduced. A larger dataset on driving vehicles is showing an end-point-error of around 6, when tested on SceneFlow pretrained model.
 
 So the loss was computed on the pretrained SceneFlow dataset. Likely, a finetuned model on KITTI dataset would give somewhat better results which is investigated later in analysis. The authors also mention a high accuracy on KITTI dataset. 
 
@@ -81,7 +81,7 @@ of three subsets.
 
 
 
-## Analysis
+
 
 ### Finetuning on KITTI 2015 dataset
 As a second step in our reproducibility project, we decided to use the Sceneflow pretrained model and finetune it on KITTI 2015, hence comparing the disparity images and find qualitative differences in the images. For the finetune, Google Colab was chosen. Since the RAM memory was limited, the batch size was reduced from 12 to 4 and the number of epochs was set to 300 epochs. Unfortunately the runtime of the VM in Google Colab is limited (12 hours) hence we managed to finetune the model for maximum 186 epochs. Nevertheless, this was enough to get disparity images.
