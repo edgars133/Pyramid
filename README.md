@@ -121,3 +121,6 @@ Regarding the finetune, the model has shown better results for street images, wh
 
 ## References
 [1] Jia-Ren Chang and Yong-Sheng Chen. "Pyramid Stereo Matching Network", 2018.
+
+## Basic task distribution
+Youssef performed finetuning, Edgars found the end-point-error and described model.
