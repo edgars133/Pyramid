@@ -71,7 +71,7 @@ The total test loss is evaluated as shown below. The function 'test' takes left 
 	print('total test loss = %.3f' %(total_test_loss/len(TestImgLoader)))
 ```
 
-The large error is also partially due to small dataset used. However, there was also an issue ( JiaRenChang/PSMNet#64 ) reported that finding an error close to 1.09 requires to toggle the corners and without training the model on SceneFlow from scratch, such small error could not be reproduced. A larger dataset on driving vehicles is showing an end-point-error of around 6, when tested on SceneFlow pretrained model.
+The large error is also partially due to small dataset used. However, there was also an issue (JiaRenChang/PSMNet#64) reported that finding an error close to 1.09 requires to toggle the corners and without training the model on SceneFlow from scratch, such small error could not be reproduced. A larger dataset on driving vehicles is showing an end-point-error of around 6, when tested on SceneFlow pretrained model.
 
 So the loss was computed on the pretrained SceneFlow dataset. Likely, a finetuned model on KITTI dataset would give somewhat better results which is investigated later in analysis. The authors also mention a high accuracy on KITTI dataset. 
 
